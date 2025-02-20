@@ -43,7 +43,7 @@ function init(){
         "", "", ""
     ];
     turn = "1";
-    winner = null;
+    winner = false;
     tie = false;
     render();
     //console.log("loaded");
@@ -54,18 +54,23 @@ function handleClick(event) {
     const squareIndex = event.target.id;
     if(board[squareIndex]) return;
     board[squareIndex] = turn;
-    turn *= -1;
-    winner = checkForWinner();
+    turn *= -1;   
+    //placePiece(squareIndex);
+    checkForWinner();
     //checkForTie();
     render();
 }
 
 function updateBoard(){
     board.forEach((value, index) => {
+        //board[index] = squareEls[index];
         squareEls[index].textContent = players[value];
     })
 }
 
+// function placePiece(index){
+//     board[index] = turn;
+// }
 
 function checkForWinner(){
     for (let i = 0; i < board.length; i++) {
@@ -81,6 +86,7 @@ function checkForWinner(){
             //(Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
         ){
             winner = true;
+            console.log("winner");
             messageEl.textContent = messageEl.textContent = `${players[turn]} wins!`;
         }
     if (board.includes("")){
@@ -127,3 +133,5 @@ document.querySelector(".board").addEventListener("click", handleClick);
 
 //tried this but it still did not print the winner; the game keeps going
 //(Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
+
+//board array is not updating as pieces are placed
