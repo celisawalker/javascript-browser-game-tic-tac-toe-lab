@@ -1,0 +1,47 @@
+body {
+    background-color: rgb(228, 196, 213);
+    /* Use a system font, if none are available use an available sans-sarif */
+    font-family: system-ui, sans-serif;
+    margin: 0;
+  }
+
+  h2, h1{
+    color: #623a20;
+    text-align: center;
+  
+  }
+  
+  .board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 325px;
+    height: 325px;
+    margin: 0 auto;
+    
+  }
+  
+  .sqr {
+    width: 30%;
+    aspect-ratio: 1/1;
+    border: 3px solid #623a20;
+    font-size: 64px;
+    text-align: center;
+  }
+
+  #button-props{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;;
+  }
+
+  button{
+   color: white;
+   font-size: medium;
+   background-color: rgb(95, 14, 45);
+   border-radius:17px;
+   width: 7em;
+   height: 2em;
+
+  }
+  
