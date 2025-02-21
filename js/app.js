@@ -54,7 +54,6 @@ function handleClick(event) {
     board[squareIndex] = turn;
     turn *= -1;   
     checkForWinner();
-    //checkForTie();
     render();
 }
 
@@ -102,23 +101,3 @@ function render (){
 /*----------------------------- Event Listeners -----------------------------*/
 const reset = document.querySelector("#reset").addEventListener("click", init);
 const gamePlay = document.querySelector(".board").addEventListener("click", handleClick);
-
-//1) Define the required variables used to track the state of the game.
-
-//2) Store cached element references.
-
-//3) Upon loading, the game state should be initialized, and a function should 
-//   be called to render this game state.
-
-//4) The state of the game should be rendered to the user.
-
-//5) Define the required constants.
-
-//6) Handle a player clicking a square with a `handleClick` function.
-
-//7) Create Reset functionality.
-
-//tried this but it still did not print the winner; the game keeps going
-//(Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
-
-//board array is not updating as pieces are placed
