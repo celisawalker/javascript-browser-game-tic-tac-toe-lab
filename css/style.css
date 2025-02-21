@@ -2,7 +2,7 @@ body {
     background-color: rgb(228, 196, 213);
     /* Use a system font, if none are available use an available sans-sarif */
     font-family: system-ui, sans-serif;
-    margin: 0;
+    color:rgb(65, 42, 20);
   }
 
   h2, h1{
@@ -26,13 +26,14 @@ body {
     border: 3px solid #623a20;
     font-size: 64px;
     text-align: center;
+    padding-top: 20px;
   }
 
   #button-props{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;;
+    margin-top: 60px;
   }
 
   button{

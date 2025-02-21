@@ -36,17 +36,15 @@ const messageEl = document.querySelector("#message");
 /*-------------------------------- Functions --------------------------------*/
 init();
 function init(){
-    // document.querySelector("script").addEventListener("load", init);
     board = [
         "", "", "",
         "", "", "", 
         "", "", ""
     ];
-    turn = "1";
+    turn = 1;
     winner = false;
     tie = false;
     render();
-    //console.log("loaded");
 }
 
 function handleClick(event) {
@@ -55,7 +53,6 @@ function handleClick(event) {
     if(board[squareIndex]) return;
     board[squareIndex] = turn;
     turn *= -1;   
-    //placePiece(squareIndex);
     checkForWinner();
     //checkForTie();
     render();
@@ -63,14 +60,9 @@ function handleClick(event) {
 
 function updateBoard(){
     board.forEach((value, index) => {
-        //board[index] = squareEls[index];
         squareEls[index].textContent = players[value];
     })
 }
-
-// function placePiece(index){
-//     board[index] = turn;
-// }
 
 function checkForWinner(){
     for (let i = 0; i < board.length; i++) {
@@ -82,39 +74,34 @@ function checkForWinner(){
             board[2] !== "" && board [2] === board[4] && board[2] === board[6] ||
             board[3] !== "" && board [3] === board[4] && board[3] === board[5] ||
             board[6] !== "" && board [6] === board[7] && board[6] === board[8]
-            //tried this too but it still did not print the winner when a winning combo is made and the game keeps going
-            //(Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
         ){
             winner = true;
-            console.log("winner");
-            messageEl.textContent = messageEl.textContent = `${players[turn]} wins!`;
-        }
-    if (board.includes("")){
-        return null;
-    }else{
-        tie = true;
+            messageEl.textContent = `Player ${players[-turn]} wins! 🎉`;
         }
     }
 }
+        
 
-// function checkForTie(){
-//     if(winner = true) return;
-//     if(board.includes("")){
-//         tie = false;
-//     }
-// }
+function checkForTie(){
+    if(board.includes("")){
+        tie === false;
+    }else{
+            tie === true;
+            messageEl.textContent = "Tie game!";
+            console.log("tie");
+        }
+}
 
 function render (){
     if(!winner){
         messageEl.textContent = `${players[turn]}'s turn`
-    }else if(tie === true){
-        messageEl.textContent = "It's a tie!";
-    } 
+    }
+    checkForTie();
     updateBoard();
 }
 /*----------------------------- Event Listeners -----------------------------*/
-document.querySelector("#reset").addEventListener("click", init);
-document.querySelector(".board").addEventListener("click", handleClick);
+const reset = document.querySelector("#reset").addEventListener("click", init);
+const gamePlay = document.querySelector(".board").addEventListener("click", handleClick);
 
 //1) Define the required variables used to track the state of the game.
 
